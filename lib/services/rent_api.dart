@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:car_rental/model/renting_model.dart';
 import 'package:car_rental/utils/configs.dart';
 import 'package:car_rental/utils/shared_preference.dart';
@@ -52,14 +51,7 @@ Future<dynamic> rentProduct(
   );
   if (response.statusCode == 201) {
     var modelProduct = requestAttendanceFromJson(response.body);
-    Fluttertoast.showToast(
-      msg: "Successfully Rented",
-      toastLength: Toast.LENGTH_SHORT,
-      fontSize: 20.0,
-      timeInSecForIosWeb: 1,
-      textColor: Colors.white,
-      backgroundColor: Colors.green[800],
-    );
+
     // _check = modelProduct.products;
     return modelProduct;
     // notifyListeners();

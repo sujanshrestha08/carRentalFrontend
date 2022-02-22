@@ -1,18 +1,17 @@
-import 'package:car_rental/admin/product_details.dart';
 import 'package:car_rental/model/product.dart';
+import 'package:car_rental/screen/productuserdetail.dart';
 import 'package:car_rental/services/searchProduct_api.dart';
-import 'package:car_rental/utils/search.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SearchPage extends StatefulWidget {
-  SearchPage({Key? key}) : super(key: key);
+class SearchUserPage extends StatefulWidget {
+  SearchUserPage({Key? key}) : super(key: key);
 
   @override
-  State<SearchPage> createState() => _SearchPageState();
+  State<SearchUserPage> createState() => _SearchUserPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class _SearchUserPageState extends State<SearchUserPage> {
   List<ProductElement>? products;
   TextEditingController searchP = TextEditingController();
   String query = '';
@@ -79,7 +78,7 @@ class _SearchPageState extends State<SearchPage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => ProductDetail(
+                                        builder: (context) => ProductUserDetail(
                                               id: (search.value?[index].id)
                                                   .toString(),
                                               name: (search.value?[index].name)
@@ -151,19 +150,4 @@ class _SearchPageState extends State<SearchPage> {
       ),
     );
   }
-
-  // Widget searchProduct() => Search(
-  //       text: query,
-  //       hintText: "Search...",
-  //       onChanged: product,
-  //     );
-
-  // Future product(String query) async {
-  //   final products = await getProduct(query, context);
-  //   if (!mounted) return;
-  //   setState(() {
-  //     this.query = query;
-  //     this.products = products;
-  //   });
-  // }
 }

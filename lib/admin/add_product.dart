@@ -48,24 +48,6 @@ class _AddProductUiState extends State<AddProductUi> {
 
   @override
   Widget build(BuildContext context) {
-    // _imgFromCamera() async {
-    //   File image = await ImagePicker.pickImage(
-    //       source: ImageSource.camera, imageQuality: 50);
-
-    //   setState(() {
-    //     _image = image;
-    //   });
-    // }
-
-    // _imgFromGallery() async {
-    //   File image = await ImagePicker.pickImage(
-    //       source: ImageSource.gallery, imageQuality: 50);
-
-    //   setState(() {
-    //     _image = image;
-    //   });
-    // }
-
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
@@ -101,15 +83,15 @@ class _AddProductUiState extends State<AddProductUi> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.car_rental_outlined,
-                          size: 60,
-                          color: Colors.blueGrey[700],
-                        ),
-                        Icon(
                           Icons.add,
                           size: 30,
                           color: Colors.redAccent[700],
-                        )
+                        ),
+                        Icon(
+                          Icons.car_rental_outlined,
+                          size: 60,
+                          color: Colors.indigo[700],
+                        ),
                       ],
                     ),
                     _gap(),
@@ -327,7 +309,7 @@ class _AddProductUiState extends State<AddProductUi> {
                               description.text,
                               availableVehicle.text,
                               price.text,
-                              image,
+                              (image?.path).toString(),
                               context,
                             ).then((value) => {
                                   setState(() {

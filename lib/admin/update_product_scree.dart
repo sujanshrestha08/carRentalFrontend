@@ -1,3 +1,4 @@
+import 'package:car_rental/admin/admin_home.dart';
 import 'package:car_rental/services/add_product.dart';
 import 'package:car_rental/services/update_product_api.dart';
 import 'package:flutter/material.dart';
@@ -85,8 +86,10 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(35),
+            Container(
+              color: Colors.white,
+              margin: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(20),
               child: Form(
                 key: globalFormKey,
                 child: Column(
@@ -94,9 +97,17 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.integration_instructions_outlined,
                       size: 80,
+                      color: Colors.indigo[900],
+                    ),
+                    Text(
+                      "Update below fields",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.indigo[900],
+                      ),
                     ),
 
                     _gap(),
@@ -112,12 +123,15 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                       },
                       controller: name,
                       decoration: InputDecoration(
-                        labelText: widget.name,
+                        labelText: "Car Model Name",
+                        hintText: widget.name,
                         hintStyle: const TextStyle(color: Colors.grey),
                         border: const OutlineInputBorder(),
-                        prefixIcon: const Icon(
-                          Icons.account_circle_outlined,
+                        prefixIcon: Icon(
+                          Icons.car_rental,
                           // color: Colors.black54,
+                          color: Colors.blue[900],
+                          size: 30,
                         ),
                       ),
                     ),
@@ -134,11 +148,14 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                       },
                       controller: brand,
                       decoration: InputDecoration(
-                        labelText: widget.brand,
+                        labelText: "Car Brand",
+                        hintText: widget.brand,
                         hintStyle: TextStyle(color: Colors.grey),
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(
-                          Icons.account_circle_outlined,
+                          Icons.branding_watermark_outlined,
+                          color: Colors.blue[900],
+                          size: 25,
                           // color: Colors.black54,
                         ),
                       ),
@@ -156,12 +173,14 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                       },
                       controller: category,
                       decoration: InputDecoration(
-                        labelText: widget.category,
+                        labelText: "Category",
+                        hintText: widget.category,
                         hintStyle: TextStyle(color: Colors.grey),
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(
-                          Icons.account_circle_outlined,
-                          // color: Colors.black54,
+                          Icons.category_outlined,
+                          color: Colors.blue[900],
+                          size: 30,
                         ),
                       ),
                     ),
@@ -178,12 +197,14 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                       },
                       controller: description,
                       decoration: InputDecoration(
-                        labelText: widget.description,
+                        labelText: "Description",
+                        hintText: widget.description,
                         hintStyle: TextStyle(color: Colors.grey),
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(
-                          Icons.account_circle_outlined,
-                          // color: Colors.black54,
+                          Icons.description_outlined,
+                          color: Colors.blue[900],
+                          size: 30,
                         ),
                       ),
                     ),
@@ -203,12 +224,14 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                       },
                       controller: availableVehicle,
                       decoration: InputDecoration(
-                        labelText: widget.availableVehicle,
+                        labelText: "Total Available Vehicle",
+                        hintText: widget.availableVehicle,
                         hintStyle: TextStyle(color: Colors.grey),
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(
-                          Icons.account_circle_outlined,
-                          // color: Colors.black54,
+                          Icons.touch_app_outlined,
+                          color: Colors.blue[900],
+                          size: 30,
                         ),
                       ),
                     ),
@@ -229,12 +252,14 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                       // onSaved: (input) => _value = num.tryParse(input),
                       controller: price,
                       decoration: InputDecoration(
-                        labelText: widget.price,
+                        labelText: "Price",
+                        hintText: widget.price,
                         hintStyle: TextStyle(color: Colors.grey),
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(
-                          Icons.account_circle_outlined,
-                          // color: Colors.black54,
+                          Icons.attach_money_outlined,
+                          color: Colors.blue[900],
+                          size: 30,
                         ),
                       ),
                     ),
@@ -299,6 +324,11 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                                   }),
                                   // if (value.isAdmin == false)
                                   // {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AdminHomePage()),
+                                  ),
                                   Fluttertoast.showToast(
                                     msg:
                                         "Congratulations ! \n Product has been updated",

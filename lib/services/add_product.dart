@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:car_rental/model/add_product_model.dart';
+import 'package:car_rental/services/product_service.dart';
 import 'package:car_rental/utils/configs.dart';
 import 'package:car_rental/utils/shared_preference.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'dart:async';
+
+import 'package:provider/provider.dart';
 
 // class AddProduct extends ChangeNotifier {
 Future<dynamic> postproduct(
@@ -17,13 +20,9 @@ Future<dynamic> postproduct(
   String description,
   String availableVehicle,
   String price,
-  dynamic image,
+  String image,
   context,
 ) async {
-  // var imageResult = MultipartFile.fromFileSync(image.path,
-  //     filename: "${image.path.split("/")[image.path.split("/").length - 1]}");
-  // print(imageResult);
-  // .fromFileSync(tyoimagefile.path, filename: "${tyoimagefile.path.split("/")[tyoimagefile.path.split("/").length -1]}")
   var body = {
     "name": name,
     "brand": brand,
@@ -45,6 +44,7 @@ Future<dynamic> postproduct(
   );
   if (response.statusCode == 201) {
     var addProduct = addProductFromJson(response.body);
+    await Provider.of<MyProduct>(context, listen: false).getproduct(context);
     return addProduct;
   } else {
     Fluttertoast.showToast(
