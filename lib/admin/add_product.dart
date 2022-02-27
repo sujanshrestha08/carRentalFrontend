@@ -32,7 +32,7 @@ class _AddProductUiState extends State<AddProductUi> {
     );
   }
 
-  File? image;
+  dynamic image;
 
   Future pickImage() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -201,7 +201,6 @@ class _AddProductUiState extends State<AddProductUi> {
                         }
                       },
                       //hello
-
                       //kjherh
                       controller: availableVehicle,
                       decoration: InputDecoration(

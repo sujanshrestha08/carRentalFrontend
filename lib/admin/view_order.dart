@@ -54,59 +54,189 @@ class _ViewAdminOrdersState extends State<ViewAdminOrders> {
               itemBuilder: (BuildContext context, int index) {
                 // DateTime from = DateTime.
                 // String durationFrom = DateFormat('d MMM yyy').format((rent.value?[index].durationFrom).toString());
-                return Card(
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 2,
-                    ),
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    elevation: 5,
                     child: Container(
-                      padding: const EdgeInsets.all(10),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: 4,
-                            child: Container(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  // Text(
-                                  //     "Ordered By - ${(rent.value?[index].user?.name).toString()}"),
-                                  Text(
-                                      "Order duration from - ${timeDate.getDate((rent.value?[index].durationFrom).toString())}"),
-                                  Text(
-                                      "Order duration To - ${timeDate.getDate((rent.value?[index].durationTo).toString())}"),
-                                  const Text("Order Item"),
-                                  Container(
-                                    height: 50,
-                                    child: Text(
-                                      (rent.value?[index].rentItem?.image)
-                                          .toString(),
-                                    ),
-                                  ),
-                                  Text((rent.value?[index].rentItem?.name)
-                                      .toString()),
-                                  Text((rent.value?[index].rentItem?.price)
-                                      .toString()),
-                                  const Text("Picking Address"),
-                                  Text((rent.value?[index].pickingAddress
-                                          ?.address)
-                                      .toString()),
-                                  Text((rent.value?[index].pickingAddress?.city)
-                                      .toString()),
-                                  Text((rent.value?[index].pickingAddress
-                                          ?.country)
-                                      .toString()),
-                                  Text((rent.value?[index].pickingAddress
-                                          ?.postalCode)
-                                      .toString()),
-                                ],
-                              ),
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.all(Radius.circular(
+                                10.0) //                 <--- border radius here
                             ),
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.blue.shade200,
+                            Colors.blue.shade500,
+                            Colors.blue.shade900,
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 2,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 4,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    // Text(
+                                    //     "Ordered By - ${(rent.value?[index].user?.name).toString()}"),
+                                    // Text(
+                                    //     "Order duration from - ${timeDate.getDate((rent.value?[index].durationFrom).toString())}"),
+                                    // Text(
+                                    //     "Order duration To - ${timeDate.getDate((rent.value?[index].durationTo).toString())}"),
+                                    Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(
+                                                10.0) //                 <--- border radius here
+                                            ),
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Colors.blue.shade800,
+                                            Colors.blue.shade900,
+                                            Colors.blue.shade900,
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                      ),
+                                      child: Text(
+                                        "Order By ${(rent.value?[index].user?.name).toString()}",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 26,
+                                            fontStyle: FontStyle.italic),
+                                      ),
+                                    ),
+                                    Divider(
+                                      color: Colors.white,
+                                      thickness: 1,
+                                    ),
+                                    Text(
+                                      "Order Item",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontStyle: FontStyle.italic),
+                                    ),
+                                    Text(
+                                      "Model Name - ${(rent.value?[index].rentItem?.name).toString()}",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    ),
+                                    Text(
+                                      "Price - ${(rent.value?[index].rentItem?.price).toString()}",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    ),
+                                    Divider(
+                                      color: Colors.white,
+                                      thickness: 2,
+                                    ),
+                                    const Text("Picking Address",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 22,
+                                        )),
+
+                                    Text(
+                                      "Street Name - ${(rent.value?[index].pickingAddress?.address).toString()}",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    ),
+                                    Text(
+                                      "City - ${(rent.value?[index].pickingAddress?.city).toString()}",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    ),
+                                    Text(
+                                      "Country - ${(rent.value?[index].pickingAddress?.country).toString()}",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    ),
+                                    Text(
+                                      "Postal Code - ${(rent.value?[index].pickingAddress?.postalCode).toString()}",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    ),
+                                    Divider(
+                                      color: Colors.white,
+                                      thickness: 2,
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(
+                                                10.0) //                 <--- border radius here
+                                            ),
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Colors.blue.shade800,
+                                            Colors.blue.shade900,
+                                            Colors.blue.shade900,
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          const Text(
+                                            "Order duration",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.white),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Text(
+                                                "From -\n${timeDate.getDate((rent.value?[index].durationFrom).toString())}",
+                                                style: const TextStyle(
+                                                    fontSize: 16,
+                                                    color: Colors.white),
+                                              ),
+                                              Text(
+                                                "To - \n${timeDate.getDate((rent.value?[index].durationTo).toString())}",
+                                                style: const TextStyle(
+                                                    fontSize: 16,
+                                                    color: Colors.white),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),

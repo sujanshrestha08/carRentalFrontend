@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:car_rental/model/getOrdersAdmin_model.dart';
 import 'package:car_rental/model/get_rent.dart';
 import 'package:car_rental/model/renting_model.dart';
 import 'package:car_rental/utils/configs.dart';
@@ -9,8 +10,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
 class GetRent extends ChangeNotifier {
-  List<GetOrders>? _check = [];
-  List<GetOrders>? get value => _check;
+  List<AllOrderAdmin>? _check = [];
+  List<AllOrderAdmin>? get value => _check;
 
   Future<dynamic> rentProduct(
     context,
@@ -25,7 +26,7 @@ class GetRent extends ChangeNotifier {
       },
     );
     if (response.statusCode == 200) {
-      var modelProduct = getOrdersFromJson(response.body);
+      var modelProduct = allOrderAdminFromJson(response.body);
       _check = modelProduct;
       notifyListeners();
       return modelProduct;

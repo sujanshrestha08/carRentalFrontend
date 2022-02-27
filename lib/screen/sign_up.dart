@@ -113,7 +113,6 @@ class _SignUpState extends State<SignUp> {
                     _gap(),
                     TextFormField(
                       style: const TextStyle(color: Colors.white),
-
                       keyboardType: TextInputType.emailAddress,
                       // onSaved: (input) => email = input,
                       validator: (input) {
