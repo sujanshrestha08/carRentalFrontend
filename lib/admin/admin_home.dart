@@ -275,139 +275,158 @@ class _AdminHomePageState extends State<AdminHomePage> {
                           margin: const EdgeInsets.all(20),
                           child: const Text("Empty")));
                 } else {
-                  return ListView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: product.value?.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 5),
-                          child: Card(
-                            elevation: 10,
-                            child: Padding(
+                  return Column(
+                    children: [
+                      Container(
+                        height: 150,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.purple.shade100,
+                          image: const DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                                "https://media.istockphoto.com/photos/close-up-of-a-man-receiving-new-car-key-picture-id628453996?k=20&m=628453996&s=612x612&w=0&h=o0YMpSeU9tL73tn3xih1fGd3RQ8XViJpIgOeCTI_RB4="),
+                          ),
+                        ),
+                      ),
+                      ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: product.value?.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 2,
-                              ),
-                              child: InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ProductDetail(
-                                              id: (product.value?[index].id)
-                                                  .toString(),
-                                              name: (product.value?[index].name)
-                                                  .toString(),
-                                              image:
-                                                  (product.value?[index].image)
+                                  horizontal: 8, vertical: 5),
+                              child: Card(
+                                elevation: 10,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 2,
+                                  ),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => ProductDetail(
+                                                  id: (product.value?[index].id)
                                                       .toString(),
-                                              // NetworkImage(
-                                              //     Configs.mainURL +
-                                              //         // "/" +
-                                              //         // "${product.value?[index].image}"
-                                              //         "/uploads/image-1644773012939.png"
-                                              //     // "${product.value?[index].image}"
+                                                  name: (product
+                                                          .value?[index].name)
+                                                      .toString(),
+                                                  image: (product
+                                                          .value?[index].image)
+                                                      .toString(),
+                                                  // NetworkImage(
+                                                  //     Configs.mainURL +
+                                                  //         // "/" +
+                                                  //         // "${product.value?[index].image}"
+                                                  //         "/uploads/image-1644773012939.png"
+                                                  //     // "${product.value?[index].image}"
 
-                                              //     ),
-                                              brand:
-                                                  (product.value?[index].brand)
+                                                  //     ),
+                                                  brand: (product
+                                                          .value?[index].brand)
                                                       .toString(),
-                                              category: (product
-                                                      .value?[index].category)
-                                                  .toString(),
-                                              price:
-                                                  (product.value?[index].price)!
+                                                  category: (product
+                                                          .value?[index]
+                                                          .category)
+                                                      .toString(),
+                                                  price: (product
+                                                          .value?[index].price)!
                                                       .toInt(),
-                                              description: (product
-                                                      .value?[index]
-                                                      .description)
-                                                  .toString(),
-                                              productid:
-                                                  (product.value?[index].id)
+                                                  description: (product
+                                                          .value?[index]
+                                                          .description)
                                                       .toString(),
-                                              availableVehicle: ((product
-                                                      .value?[index]
-                                                      .availableVehicle)
-                                                  .toString()),
-                                            )),
-                                  );
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        height: 150,
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: Colors.purple.shade100,
-                                          // shape: BoxShape.circle,
-                                          // color: Colors.grey,
-                                          // border: Border.all(
-                                          //     color: const Color(0xfff06127), style: BorderStyle.solid),
-                                          image: const DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                                Configs.mainURL +
-                                                    // "/" +
+                                                  productid:
+                                                      (product.value?[index].id)
+                                                          .toString(),
+                                                  availableVehicle: ((product
+                                                          .value?[index]
+                                                          .availableVehicle)
+                                                      .toString()),
+                                                )),
+                                      );
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(10),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            height: 150,
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color: Colors.purple.shade100,
+                                              // shape: BoxShape.circle,
+                                              // color: Colors.grey,
+                                              // border: Border.all(
+                                              //     color: const Color(0xfff06127), style: BorderStyle.solid),
+                                              image: const DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: NetworkImage(
+                                                    Configs.mainURL +
+                                                        // "/" +
+                                                        // "${product.value?[index].image}"
+                                                        "/uploads/image-1644773012939.png"
                                                     // "${product.value?[index].image}"
-                                                    "/uploads/image-1644773012939.png"
-                                                // "${product.value?[index].image}"
 
-                                                ),
+                                                    ),
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                      ),
-                                      Container(
-                                        height: 150,
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: Colors.purple.shade100,
-                                          // shape: BoxShape.circle,
-                                          // color: Colors.grey,
-                                          // border: Border.all(
-                                          //     color: const Color(0xfff06127), style: BorderStyle.solid),
-                                          image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                                Configs.mainURL +
-                                                    // "/" +
+                                          Container(
+                                            height: 150,
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color: Colors.purple.shade100,
+                                              // shape: BoxShape.circle,
+                                              // color: Colors.grey,
+                                              // border: Border.all(
+                                              //     color: const Color(0xfff06127), style: BorderStyle.solid),
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: NetworkImage(
+                                                    Configs.mainURL +
+                                                        // "/" +
+                                                        // "${product.value?[index].image}"
+                                                        "/uploads/image-1644773012939.png"
                                                     // "${product.value?[index].image}"
-                                                    "/uploads/image-1644773012939.png"
-                                                // "${product.value?[index].image}"
 
-                                                ),
+                                                    ),
+                                              ),
+                                            ),
                                           ),
-                                        ),
+                                          space(),
+                                          Text(
+                                              "Car Name : ${(product.value?[index].name).toString()}",
+                                              style: TextStyle(
+                                                color: Colors.indigo[800],
+                                                fontSize: 16,
+                                              )),
+                                          space(),
+                                          Text(
+                                              "\$\$\$ ${(product.value?[index].price).toString()}",
+                                              style: TextStyle(
+                                                color: Colors.red[600],
+                                                fontSize: 16,
+                                              )),
+                                          space(),
+                                        ],
                                       ),
-                                      space(),
-                                      Text(
-                                          "Car Name : ${(product.value?[index].name).toString()}",
-                                          style: TextStyle(
-                                            color: Colors.indigo[800],
-                                            fontSize: 16,
-                                          )),
-                                      space(),
-                                      Text(
-                                          "\$\$\$ ${(product.value?[index].price).toString()}",
-                                          style: TextStyle(
-                                            color: Colors.red[600],
-                                            fontSize: 16,
-                                          )),
-                                      space(),
-                                    ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
-                        );
-                      });
+                            );
+                          }),
+                    ],
+                  );
                 }
               }),
             ],

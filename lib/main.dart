@@ -1,4 +1,4 @@
-import 'package:awesome_notifications/awesome_notifications.dart';
+// import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:car_rental/screen/car_details.dart';
 import 'package:car_rental/screen/homepage.dart';
 import 'package:car_rental/screen/login_screen.dart';
@@ -14,19 +14,19 @@ import 'package:provider/provider.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  AwesomeNotifications().initialize(null, // icon for your app notification
-      [
-        NotificationChannel(
-            channelKey: 'key1',
-            channelName: 'Car Rental',
-            channelDescription: "Notification example",
-            defaultColor: const Color(0XFF9050DD),
-            ledColor: Colors.white,
-            playSound: true,
-            enableLights: true,
-            importance: NotificationImportance.High,
-            enableVibration: true)
-      ]);
+  // AwesomeNotifications().initialize(null, // icon for your app notification
+  //     [
+  //       NotificationChannel(
+  //           channelKey: 'key1',
+  //           channelName: 'Car Rental',
+  //           channelDescription: "Notification example",
+  //           defaultColor: const Color(0XFF9050DD),
+  //           ledColor: Colors.white,
+  //           playSound: true,
+  //           enableLights: true,
+  //           importance: NotificationImportance.High,
+  //           enableVibration: true)
+  //     ]);
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => MyProduct()),
     ChangeNotifierProvider(create: (_) => TimeProvider()),

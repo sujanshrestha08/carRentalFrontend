@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:awesome_notifications/awesome_notifications.dart';
+// import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:car_rental/admin/admin_home.dart';
 import 'package:car_rental/admin/update_product_scree.dart';
 import 'package:car_rental/services/product_service.dart';
@@ -39,17 +39,17 @@ class ProductDetail extends StatefulWidget {
   State<ProductDetail> createState() => _ProductDetailState();
 }
 
-void notify() async {
-  await AwesomeNotifications().createNotification(
-    content: NotificationContent(
-        id: 1,
-        channelKey: 'key1',
-        title: 'Car has been booked successfully',
-        notificationLayout: NotificationLayout.BigPicture,
-        bigPicture:
-            'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXR5JTIwc2Fsb29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60'),
-  );
-}
+// void notify() async {
+//   await AwesomeNotifications().createNotification(
+//     content: NotificationContent(
+//         id: 1,
+//         channelKey: 'key1',
+//         title: 'Car has been booked successfully',
+//         notificationLayout: NotificationLayout.BigPicture,
+//         bigPicture:
+//             'https://media.istockphoto.com/photos/close-up-of-a-man-receiving-new-car-key-picture-id628453996?k=20&m=628453996&s=612x612&w=0&h=o0YMpSeU9tL73tn3xih1fGd3RQ8XViJpIgOeCTI_RB4='),
+//   );
+// }
 
 class _ProductDetailState extends State<ProductDetail> {
   final address = TextEditingController();
@@ -406,8 +406,6 @@ class _ProductDetailState extends State<ProductDetail> {
                                             ).then((value) => {
                                                   setState(() {
                                                     Navigator.pop(context);
-                                                    Navigator.pop(context);
-
                                                     // notify();
                                                     // Navigator.push(
                                                     //   context,
@@ -426,7 +424,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                                       backgroundColor:
                                                           Colors.green[800],
                                                     );
-                                                    notify();
+                                                    // notify();
                                                   }),
                                                   // }
                                                 });
