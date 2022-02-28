@@ -13,6 +13,8 @@ class AddProductUi extends StatefulWidget {
   State<AddProductUi> createState() => _AddProductUiState();
 }
 
+dynamic image;
+
 class _AddProductUiState extends State<AddProductUi> {
   // late File _image;
   late File _image;

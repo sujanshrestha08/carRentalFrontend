@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:car_rental/admin/search_page.dart';
 import 'package:car_rental/admin/view_my_order.dart';
 import 'package:car_rental/model/product.dart';
@@ -10,6 +12,7 @@ import 'package:car_rental/utils/shared_preference.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,10 +23,42 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<double>? _accelerometerValues;
+
+  final _streamSubscriptions = <StreamSubscription<dynamic>>[];
+
   @override
   void initState() {
     super.initState();
     Provider.of<MyProduct>(context, listen: false).getproduct(context);
+    super.initState();
+
+    _streamSubscriptions.add(
+      accelerometerEvents.listen(
+        (AccelerometerEvent event) {
+          setState(() {
+            _accelerometerValues = <double>[event.x, event.y, event.z];
+
+            print(_accelerometerValues);
+
+            if (event.x >= 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SearchUserPage()),
+              );
+            }
+          });
+        },
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    for (final subscription in _streamSubscriptions) {
+      subscription.cancel();
+    }
   }
 
   // static Future<dynamic> setHomePageData(
@@ -45,7 +80,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final accelerometer =
+        _accelerometerValues?.map((double v) => v.toStringAsFixed(1)).toList();
     dynamic value = SharedServices.getHomePageData();
+
     return Scaffold(
       // bottomNavigationBar: BottomAppBar(
       //   // color: Colors.transparent,
@@ -301,12 +339,10 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.all(10),
                         margin: EdgeInsets.all(2),
                         width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.purple.shade100,
-                          image: const DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                                "https://media.istockphoto.com/photos/close-up-of-a-man-receiving-new-car-key-picture-id628453996?k=20&m=628453996&s=612x612&w=0&h=o0YMpSeU9tL73tn3xih1fGd3RQ8XViJpIgOeCTI_RB4="),
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage('assets/images/homepage.jpg'),
                           ),
                         ),
                       ),

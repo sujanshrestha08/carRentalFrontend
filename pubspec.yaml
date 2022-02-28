@@ -34,8 +34,10 @@ dependencies:
   fluttertoast: ^8.0.8
   provider: ^6.0.2  
   image_picker: ^0.8.4+7
+  proximity_sensor: ^1.0.2
   intl: 
   dio: 
+  sensors_plus: ^1.2.1
   # awesome_notifications: 
 
   # The following adds the Cupertino Icons font to your application.

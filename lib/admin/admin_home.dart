@@ -279,13 +279,13 @@ class _AdminHomePageState extends State<AdminHomePage> {
                     children: [
                       Container(
                         height: 150,
+                        padding: EdgeInsets.all(10),
+                        margin: EdgeInsets.all(2),
                         width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.purple.shade100,
-                          image: const DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                                "https://media.istockphoto.com/photos/close-up-of-a-man-receiving-new-car-key-picture-id628453996?k=20&m=628453996&s=612x612&w=0&h=o0YMpSeU9tL73tn3xih1fGd3RQ8XViJpIgOeCTI_RB4="),
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage('assets/images/homepage.jpg'),
                           ),
                         ),
                       ),
