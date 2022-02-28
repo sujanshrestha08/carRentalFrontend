@@ -315,7 +315,7 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                               description.text,
                               availableVehicle.text,
                               price.text,
-                              image!.path.toString(),
+                              image.toString(),
                               widget.id.toString(),
                               context,
                             ).then((value) => {
