@@ -230,7 +230,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                                   timeInSecForIosWeb: 1,
                                                   textColor: Colors.white,
                                                   backgroundColor:
-                                                      Colors.green[800],
+                                                      Colors.blue[800],
                                                 ),
                                               }
                                           });
@@ -442,6 +442,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                             ).then((value) => {
                                                   setState(() {
                                                     Navigator.pop(context);
+                                                    Navigator.pop(context);
                                                     // notify();
                                                     // Navigator.push(
                                                     //   context,
@@ -458,7 +459,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                                       timeInSecForIosWeb: 1,
                                                       textColor: Colors.white,
                                                       backgroundColor:
-                                                          Colors.green[800],
+                                                          Colors.blue[800],
                                                     );
                                                     // notify();
                                                   }),

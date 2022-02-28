@@ -15,6 +15,10 @@ import 'package:provider/provider.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'aboutus.dart';
+import 'contactus.dart';
+import 'faq.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 
@@ -85,24 +89,6 @@ class _HomePageState extends State<HomePage> {
     dynamic value = SharedServices.getHomePageData();
 
     return Scaffold(
-      // bottomNavigationBar: BottomAppBar(
-      //   // color: Colors.transparent,
-      //   child: Container(
-      //     height: 30.0,
-      //   ),
-      // ),
-      // floatingActionButton: FloatingActionButton.extended(
-      //   elevation: 5,
-      //   icon: const Icon(Icons.add),
-      //   label: const Text('Add Product'),
-      //   onPressed: () {
-      //     Navigator.push(
-      //       context,
-      //       MaterialPageRoute(builder: (context) => AddProductUi()),
-      //     );
-      //   },
-      //   backgroundColor: Colors.indigo[800],
-      // ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       drawer: Drawer(
         child: ListView(
@@ -127,52 +113,9 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                ])
-
-                // child: CircleAvatar(
-                //   backgroundColor: Colors.grey,
-                //   radius: 200,
-                //   child: Container(
-                //     decoration: BoxDecoration(
-                //       shape: BoxShape.circle,
-                //       color: Colors.grey,
-                //       border: Border.all(
-                //           color: const Color(0xfff06127),
-                //           style: BorderStyle.solid),
-                //       image: DecorationImage(
-                //         fit: BoxFit.cover,
-                //       image: details.userModel.data?.avatarImageUrl != null
-                //           ? NetworkImage(details.userModel.data?.avatarImageUrl)
-                //           : const AssetImage('assets/icons/neesumLogo.png')
-                //               as ImageProvider,
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                ),
-            // TextButton(
-            //   style: TextButton.styleFrom(
-            //     // backgroundColor: const Color(0xfff06127),
-            //     padding: const EdgeInsets.all(10),
-            //     primary: Colors.white,
-            //     textStyle: const TextStyle(fontSize: 15),
-            //   ),
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //           builder: (BuildContext context) => ViewAdminOrders()),
-            //     );
-            //   },
-            //   child: const Text(
-            //     "View All Orders",
-            //     style: TextStyle(color: Colors.black),
-            //   ),
-            // ),
-            // const Divider(),
+                ])),
             TextButton(
               style: TextButton.styleFrom(
-                // backgroundColor: const Color(0xfff06127),
                 padding: const EdgeInsets.all(10),
                 primary: Colors.white,
                 textStyle: const TextStyle(fontSize: 15),
@@ -184,12 +127,169 @@ class _HomePageState extends State<HomePage> {
                       builder: (BuildContext context) => ViewMyOrder()),
                 );
               },
-              child: const Text(
-                "View My Order",
-                style: TextStyle(color: Colors.black),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.remove_red_eye_outlined,
+                    color: Colors.blue[900],
+                  ),
+                  Text(
+                    "View My Order",
+                    style: TextStyle(
+                      color: Colors.blue[900],
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
-            const Divider(),
+
+            Divider(
+              color: Colors.blue.shade900,
+              thickness: 1,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 18),
+              color: Colors.white,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  // backgroundColor: const Color(0xfff06127),
+                  padding: const EdgeInsets.all(10),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 15),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => AboutUs()),
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.remove_red_eye_sharp,
+                      color: Colors.blueAccent[700],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "About Us",
+                      style: TextStyle(
+                          color: Colors.blue[900], fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Divider(
+              color: Colors.blue.shade900,
+              thickness: 1,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 18),
+              color: Colors.white,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  // backgroundColor: const Color(0xfff06127),
+                  padding: const EdgeInsets.all(10),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 15),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => ContactUs()),
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.contact_mail_outlined,
+                      color: Colors.blueAccent[700],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "Contact Us",
+                      style: TextStyle(
+                          color: Colors.blue[900], fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Divider(
+              color: Colors.blue.shade900,
+              thickness: 1,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 18),
+              color: Colors.white,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  // backgroundColor: const Color(0xfff06127),
+                  padding: const EdgeInsets.all(10),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 15),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (BuildContext context) => FAQ()),
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.repeat_one,
+                      color: Colors.blueAccent[700],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "FAQs",
+                      style: TextStyle(
+                          color: Colors.blue[900], fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            // TextButton(
+            //   style: TextButton.styleFrom(
+            //     // backgroundColor: const Color(0xfff06127),
+            //     padding: const EdgeInsets.all(10),
+            //     primary: Colors.white,
+            //     textStyle: const TextStyle(fontSize: 15),
+            //   ),
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //           builder: (BuildContext context) => ViewMyOrder()),
+            //     );
+            //   },
+            //   child: Text(
+            //     "View My Order",
+            //     style: TextStyle(
+            //       color: Colors.blue[900],
+            //       fontWeight: FontWeight.bold,
+            //     ),
+            //   ),
+            // ),
+            Divider(
+              color: Colors.blue.shade900,
+              thickness: 1,
+            ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 35),
               child: TextButton(

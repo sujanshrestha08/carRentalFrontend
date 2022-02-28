@@ -321,7 +321,6 @@ class _ProductUserDetailState extends State<ProductUserDetail> {
                                                     setState(() {
                                                       Navigator.pop(context);
                                                       Navigator.pop(context);
-                                                      Navigator.pop(context);
                                                       Fluttertoast.showToast(
                                                         msg:
                                                             "Successfully Rented",
@@ -331,7 +330,7 @@ class _ProductUserDetailState extends State<ProductUserDetail> {
                                                         timeInSecForIosWeb: 1,
                                                         textColor: Colors.white,
                                                         backgroundColor:
-                                                            Colors.green[800],
+                                                            Colors.blue[800],
                                                       );
                                                     }),
                                                     // }

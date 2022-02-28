@@ -5,6 +5,9 @@ import 'package:car_rental/admin/update_product_scree.dart';
 import 'package:car_rental/admin/view_my_order.dart';
 import 'package:car_rental/admin/view_order.dart';
 import 'package:car_rental/model/product.dart';
+import 'package:car_rental/screen/aboutus.dart';
+import 'package:car_rental/screen/contactus.dart';
+import 'package:car_rental/screen/faq.dart';
 import 'package:car_rental/screen/login_screen.dart';
 import 'package:car_rental/services/delete_product_api.dart';
 import 'package:car_rental/services/product_service.dart';
@@ -101,6 +104,10 @@ class _AdminHomePageState extends State<AdminHomePage> {
                 //   ),
                 // ),
                 ),
+            Divider(
+              color: Colors.blue.shade900,
+              thickness: 1,
+            ),
             TextButton(
               style: TextButton.styleFrom(
                 // backgroundColor: const Color(0xfff06127),
@@ -115,12 +122,27 @@ class _AdminHomePageState extends State<AdminHomePage> {
                       builder: (BuildContext context) => ViewAdminOrders()),
                 );
               },
-              child: const Text(
-                "View All Orders",
-                style: TextStyle(color: Colors.black),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.stacked_bar_chart_outlined,
+                    color: Colors.blue[900],
+                  ),
+                  Text(
+                    "View All Orders",
+                    style: TextStyle(
+                      color: Colors.blue[900],
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
-            const Divider(),
+            Divider(
+              color: Colors.blue.shade900,
+              thickness: 1,
+            ),
             TextButton(
               style: TextButton.styleFrom(
                 // backgroundColor: const Color(0xfff06127),
@@ -135,12 +157,146 @@ class _AdminHomePageState extends State<AdminHomePage> {
                       builder: (BuildContext context) => ViewMyOrder()),
                 );
               },
-              child: const Text(
-                "View My Order",
-                style: TextStyle(color: Colors.black),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.date_range,
+                    color: Colors.blue[900],
+                  ),
+                  Text(
+                    "View My Order",
+                    style: TextStyle(
+                      color: Colors.blue[900],
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
-            const Divider(),
+            Divider(
+              color: Colors.blue.shade900,
+              thickness: 4,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 18),
+              color: Colors.white,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  // backgroundColor: const Color(0xfff06127),
+                  padding: const EdgeInsets.all(10),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 15),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => AboutUs()),
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.remove_red_eye_sharp,
+                      color: Colors.blueAccent[700],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "About Us",
+                      style: TextStyle(
+                          color: Colors.blue[900], fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Divider(
+              color: Colors.blue.shade900,
+              thickness: 1,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 18),
+              color: Colors.white,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  // backgroundColor: const Color(0xfff06127),
+                  padding: const EdgeInsets.all(10),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 15),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => ContactUs()),
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.contact_mail_outlined,
+                      color: Colors.blueAccent[700],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "Contact Us",
+                      style: TextStyle(
+                          color: Colors.blue[900], fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Divider(
+              color: Colors.blue.shade900,
+              thickness: 1,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 18),
+              color: Colors.white,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  // backgroundColor: const Color(0xfff06127),
+                  padding: const EdgeInsets.all(10),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 15),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (BuildContext context) => FAQ()),
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.repeat_one,
+                      color: Colors.blueAccent[700],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "FAQs",
+                      style: TextStyle(
+                          color: Colors.blue[900], fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Divider(
+              color: Colors.blue.shade900,
+              thickness: 1,
+            ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 35),
               child: TextButton(
@@ -200,72 +356,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
               ])),
           child: Column(
             children: [
-              // searchProduct(),
-
-              // Consumer<SearchProduct>(builder: (context, search, child) {
-              //   return Column(
-              //     children: [
-              //       Row(
-              //         children: [
-              //           Padding(
-              //             padding: const EdgeInsets.all(8.0),
-              //             child: SizedBox(
-              //               width: 2,
-              //               child: TextField(
-              //                 controller: controller,
-              //               ),
-              //             ),
-              //           ),
-              //           IconButton(
-              //             onPressed: () {
-              //               search.getProduct(controller.text, context);
-              //             },
-              //             icon: const Icon(Icons.search),
-              //           ),
-              //         ],
-              //       ),
-              //       ListView.builder(
-              //         shrinkWrap: true,
-              //         itemCount: search.value?.length,
-              //         itemBuilder: (context, index) {
-              //           // final product = products?[index];
-              //           return Card(
-              //             child: ListTile(
-              //               title: Text((search.value?[index].name).toString()),
-              //             ),
-              //           );
-              //         },
-              //       ),
-              //     ],
-              //   );
-              //   // if (query.isEmpty == true) {
-              //   //   return Container();
-              //   // } else if (query.isNotEmpty || search.value?.isEmpty == true) {
-              //   //   return Container(
-              //   //     child: Expanded(
-              //   //       child: ListView.builder(
-              //   //         shrinkWrap: true,
-              //   //         itemCount: search.value?.length,
-              //   //         itemBuilder: (context, index) {
-              //   //           // final product = products?[index];
-              //   //           return Card(
-              //   //             child: ListTile(
-              //   //               title: Text((search.value?[index].name).toString()),
-              //   //             ),
-              //   //           );
-              //   //         },
-              //   //       ),
-              //   //     ),
-              //   //   );
-              //   // } else {
-              //   //   return Container();
-              //   // }
-              // }),
-
               Consumer<MyProduct>(builder: (context, product, child) {
-                // product.getproduct(context);
-                // final oldValue = product.value?.length;
-                // product.getproduct(context);
                 if (product.value?.isEmpty == true
                     // &&
                     //     oldValue != product.value?.length
