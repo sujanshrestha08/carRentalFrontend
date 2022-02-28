@@ -54,7 +54,7 @@ class ContactUs extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "Aqua Store Private Limited",
+                "Car Rental  Private Limited",
                 style: TextStyle(
                   color: Colors.blue[900],
                   fontSize: 22,
@@ -80,7 +80,7 @@ class ContactUs extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("Email - info@aquastorepltm.com.np",
+              child: Text("Email - info@carrenatal.com.np",
                   style: TextStyle(
                     color: Colors.blue[900],
                     fontSize: 18,
@@ -88,7 +88,7 @@ class ContactUs extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("Webiste - www.aquaStore.com",
+              child: Text("Webiste - www.carrental.com",
                   style: TextStyle(
                     color: Colors.blue[900],
                     fontSize: 18,

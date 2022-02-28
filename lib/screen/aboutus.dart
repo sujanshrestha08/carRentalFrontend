@@ -47,7 +47,7 @@ class AboutUs extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "         Aqua Store is a service operated by Aqua Services Private Limited belonging from the parent organization AquaStore Group. Aqua Store is established in February 2020 with an aim to cater premium home saloon service.",
+                      "         Car Rental is a service operated by Car Rental Services Private Limited belonging from the parent organization Car Rental Group. Car Rental is established in February 2020 with an aim to cater premium home saloon service.",
                       style: TextStyle(
                         color: Colors.blue[900],
                         fontSize: 18,
