@@ -1,5 +1,6 @@
 import 'package:car_rental/services/product_service.dart';
 import 'package:car_rental/services/rent_api.dart';
+import 'package:car_rental/utils/configs.dart';
 import 'package:car_rental/utils/time_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -33,6 +34,17 @@ class ProductUserDetail extends StatefulWidget {
   State<ProductUserDetail> createState() => _ProductUserDetailState();
 }
 
+// void notify() async {
+//   await AwesomeNotifications().createNotification(
+//     content: NotificationContent(
+//         id: 1,
+//         channelKey: 'key1',
+//         title: 'Car has been booked successfully',
+//         notificationLayout: NotificationLayout.BigPicture,
+//         bigPicture:
+//             'https://media.istockphoto.com/photos/close-up-of-a-man-receiving-new-car-key-picture-id628453996?k=20&m=628453996&s=612x612&w=0&h=o0YMpSeU9tL73tn3xih1fGd3RQ8XViJpIgOeCTI_RB4='),
+//   );
+// }
 class _ProductUserDetailState extends State<ProductUserDetail> {
   final address = TextEditingController();
   final city = TextEditingController();
@@ -107,50 +119,95 @@ class _ProductUserDetailState extends State<ProductUserDetail> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          gap(),
-                          Container(
-                            height: 200,
-                            color: Colors.amber,
-                          ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 14),
+                            padding: const EdgeInsets.all(8.0),
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                gap(),
-                                Text("Car name: ${widget.name}",
-                                    style: TextStyle(
-                                      color: Colors.indigo[800],
-                                      fontSize: 16,
-                                    )),
-                                gap(),
-                                Text(
-                                  "Car Model: ${widget.brand}",
-                                  style: TextStyle(
-                                    color: Colors.indigo[800],
-                                    fontSize: 16,
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Container(
+                                    height: 250,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue[50],
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: NetworkImage(Configs.mainURL +
+                                            '/uploads/' +
+                                            widget.image),
+                                      ),
+                                    ),
                                   ),
                                 ),
-                                gap(),
-                                Text("Category: ${widget.category}",
-                                    style: TextStyle(
-                                      color: Colors.indigo[800],
-                                      fontSize: 16,
-                                    )),
-                                gap(),
-                                Text("Price \$: ${widget.price}",
-                                    style: TextStyle(
-                                      color: Colors.indigo[800],
-                                      fontSize: 16,
-                                    )),
-                                gap(),
-                                Text("Description: ${widget.description}",
-                                    style: TextStyle(
-                                      color: Colors.indigo[800],
-                                      fontSize: 16,
-                                    )),
-                                gap(),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        // height: 40,
+                                        child: Text(
+                                          "Car name: ${widget.name}",
+                                          style: TextStyle(
+                                              color: Colors.indigo[800],
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      gap(),
+                                      SizedBox(
+                                        // height: 40,
+                                        child: Text(
+                                          "Car Model: ${widget.brand}",
+                                          style: TextStyle(
+                                              color: Colors.indigo[800],
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      gap(),
+                                      SizedBox(
+                                        // height: 40,
+                                        child: Text(
+                                            "Category: ${widget.category}",
+                                            style: TextStyle(
+                                                color: Colors.indigo[800],
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold)),
+                                      ),
+                                      gap(),
+                                      SizedBox(
+                                        // height: 40,
+                                        child: Text(
+                                            "Description: ${widget.description}",
+                                            style: TextStyle(
+                                              color: Colors.indigo[800],
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ),
+                                      gap(),
+                                      SizedBox(
+                                        // height: 40,
+                                        child: Text("Price \$: ${widget.price}",
+                                            style: TextStyle(
+                                              color: Colors.red[900],
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ),
+                                      gap(),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -307,7 +364,7 @@ class _ProductUserDetailState extends State<ProductUserDetail> {
                                             onPressed: () {
                                               rentProduct(
                                                 widget.name,
-                                                "image",
+                                                widget.name,
                                                 widget.price.toString(),
                                                 widget.productid,
                                                 address.text,
@@ -321,6 +378,7 @@ class _ProductUserDetailState extends State<ProductUserDetail> {
                                                     setState(() {
                                                       Navigator.pop(context);
                                                       Navigator.pop(context);
+                                                      // notify();
                                                       Fluttertoast.showToast(
                                                         msg:
                                                             "Successfully Rented",

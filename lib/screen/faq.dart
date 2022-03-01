@@ -54,7 +54,7 @@ class FAQ extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
               child: Text(
-                "1. How can I order fish ? \n- You can order our fish by clicking in one of the fish you want and in the details page you can add them to the cart and from cart you can order as many fish as you want.",
+                "1. How can I order Car ? \n- You can order our Car by clicking in one of the Car you want and in the details page you can add them to the cart and from cart you can order as many Car as you want.",
                 style: TextStyle(
                     color: Colors.blue[900],
                     fontSize: 17,

@@ -520,46 +520,43 @@ class _HomePageState extends State<HomePage> {
                                             height: 150,
                                             width: double.infinity,
                                             decoration: BoxDecoration(
-                                              color: Colors.purple.shade100,
+                                              color: Colors.blue[50],
                                               // shape: BoxShape.circle,
                                               // color: Colors.grey,
                                               // border: Border.all(
                                               //     color: const Color(0xfff06127), style: BorderStyle.solid),
-                                              image: const DecorationImage(
+                                              image: DecorationImage(
                                                 fit: BoxFit.cover,
-                                                image: NetworkImage(
-                                                    Configs.mainURL +
-                                                        // "/" +
-                                                        // "${product.value?[index].image}"
-                                                        "/uploads/image-1644773012939.png"
-                                                    // "${product.value?[index].image}"
-
-                                                    ),
+                                                image: NetworkImage(Configs
+                                                        .mainURL +
+                                                    '/uploads/' +
+                                                    product.value![index].image
+                                                        .toString()),
                                               ),
                                             ),
                                           ),
-                                          Container(
-                                            height: 150,
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              color: Colors.purple.shade100,
-                                              // shape: BoxShape.circle,
-                                              // color: Colors.grey,
-                                              // border: Border.all(
-                                              //     color: const Color(0xfff06127), style: BorderStyle.solid),
-                                              image: const DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: NetworkImage(
-                                                    Configs.mainURL +
-                                                        // "/" +
-                                                        // "${product.value?[index].image}"
-                                                        "/uploads/image-1644773012939.png"
-                                                    // "${product.value?[index].image}"
+                                          // Container(
+                                          //   height: 150,
+                                          //   width: double.infinity,
+                                          //   decoration: BoxDecoration(
+                                          //     color: Colors.purple.shade100,
+                                          //     // shape: BoxShape.circle,
+                                          //     // color: Colors.grey,
+                                          //     // border: Border.all(
+                                          //     //     color: const Color(0xfff06127), style: BorderStyle.solid),
+                                          //     image: DecorationImage(
+                                          //       fit: BoxFit.cover,
+                                          //       image: NetworkImage(
+                                          //           Configs.mainURL +
+                                          //               // "/" +
+                                          //               // "${product.value?[index].image}"
+                                          //               "/uploads/image-1644773012939.png"
+                                          //           // "${product.value?[index].image}"
 
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
+                                          //           ),
+                                          //     ),
+                                          //   ),
+                                          // ),
                                           space(),
                                           Text(
                                               "Car Name : ${(product.value?[index].name).toString()}",
@@ -568,20 +565,6 @@ class _HomePageState extends State<HomePage> {
                                                 fontSize: 16,
                                               )),
                                           space(),
-                                          // Text(
-                                          //     "Brand : ${(product.value?[index].brand).toString()}",
-                                          //     style: TextStyle(
-                                          //       color: Colors.indigo[800],
-                                          //       fontSize: 14,
-                                          //     )),
-                                          // space(),
-                                          // Text(
-                                          //     "Category ${(product.value?[index].category).toString()}",
-                                          //     style: TextStyle(
-                                          //       color: Colors.indigo[800],
-                                          //       fontSize: 14,
-                                          //     )),
-                                          // space(),
                                           Text(
                                               "\$\$\$ ${(product.value?[index].price).toString()}",
                                               style: TextStyle(

@@ -12,4 +12,6 @@ class Configs {
   static const String rent = "$mainURL/api/rents";
 
   static const String viewOrder = "$mainURL/api/rents/myrents";
+
+  static const String uploadImage = "$mainURL/api/upload";
 }

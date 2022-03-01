@@ -6,6 +6,7 @@ import 'package:car_rental/admin/update_product_scree.dart';
 import 'package:car_rental/services/product_service.dart';
 import 'package:car_rental/services/rent_api.dart';
 import 'package:car_rental/services/searchProduct_api.dart';
+import 'package:car_rental/utils/configs.dart';
 import 'package:car_rental/utils/time_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -152,132 +153,168 @@ class _ProductDetailState extends State<ProductDetail> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 200,
-                          color: Colors.amber,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 40,
-                        child: Text("Car name: ${widget.name}",
-                            style: TextStyle(
-                              color: Colors.indigo[800],
-                              fontSize: 16,
-                            )),
-                      ),
-                      SizedBox(
-                        height: 40,
-                        child: Text(
-                          "Car Model: ${widget.brand}",
-                          style: TextStyle(
-                            color: Colors.indigo[800],
-                            fontSize: 16,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Container(
+                            height: 250,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Colors.blue[50],
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(Configs.mainURL +
+                                    '/uploads/' +
+                                    widget.image),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 40,
-                        child: Text("Category: ${widget.category}",
-                            style: TextStyle(
-                              color: Colors.indigo[800],
-                              fontSize: 16,
-                            )),
-                      ),
-                      SizedBox(
-                        height: 40,
-                        child: Text("Price \$: ${widget.price}",
-                            style: TextStyle(
-                              color: Colors.indigo[800],
-                              fontSize: 16,
-                            )),
-                      ),
-                      SizedBox(
-                        height: 40,
-                        child: Text("Description: ${widget.description}",
-                            style: TextStyle(
-                              color: Colors.indigo[800],
-                              fontSize: 16,
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Expanded(
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  product
-                                      .delproduct(
-                                        widget.id,
-                                        context,
-                                      )
-                                      .then((value) => {
-                                            if (value.message ==
-                                                "Product Removed")
-                                              {
-                                                Navigator.pop(context),
-                                                Fluttertoast.showToast(
-                                                  msg:
-                                                      "Product Successfully Removed",
-                                                  toastLength:
-                                                      Toast.LENGTH_SHORT,
-                                                  fontSize: 20.0,
-                                                  timeInSecForIosWeb: 1,
-                                                  textColor: Colors.white,
-                                                  backgroundColor:
-                                                      Colors.blue[800],
-                                                ),
-                                              }
-                                          });
-                                },
-                                child: const Text("Delete"),
-                                style: ElevatedButton.styleFrom(
-                                    primary: Colors.indigo[800],
-                                    textStyle: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold)),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 30,
-                            ),
-                            Expanded(
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => UpdateProductUi(
-                                        id: widget.id,
-                                        name: widget.name,
-                                        brand: widget.brand,
-                                        category: widget.category,
-                                        description: widget.description,
-                                        availableVehicle:
-                                            widget.availableVehicle,
-                                        price: widget.price.toString(),
-                                        image: widget.image,
-                                      ),
-                                    ),
-                                  );
-                                },
-                                child: const Text("Update"),
-                                style: ElevatedButton.styleFrom(
-                                    primary: Colors.indigo[800],
-                                    textStyle: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold)),
-                              ),
-                            ),
-                          ],
+                        SizedBox(
+                          height: 10,
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                // height: 40,
+                                child: Text(
+                                  "Car name: ${widget.name}",
+                                  style: TextStyle(
+                                      color: Colors.indigo[800],
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              gap(),
+                              SizedBox(
+                                // height: 40,
+                                child: Text(
+                                  "Car Model: ${widget.brand}",
+                                  style: TextStyle(
+                                      color: Colors.indigo[800],
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              gap(),
+                              SizedBox(
+                                // height: 40,
+                                child: Text("Category: ${widget.category}",
+                                    style: TextStyle(
+                                        color: Colors.indigo[800],
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold)),
+                              ),
+                              gap(),
+                              SizedBox(
+                                // height: 40,
+                                child:
+                                    Text("Description: ${widget.description}",
+                                        style: TextStyle(
+                                          color: Colors.indigo[800],
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                              ),
+                              gap(),
+                              SizedBox(
+                                // height: 40,
+                                child: Text("Price \$: ${widget.price}",
+                                    style: TextStyle(
+                                      color: Colors.red[900],
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                              ),
+                              gap(),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Expanded(
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    product
+                                        .delproduct(
+                                          widget.id,
+                                          context,
+                                        )
+                                        .then((value) => {
+                                              if (value.message ==
+                                                  "Product Removed")
+                                                {
+                                                  Navigator.pop(context),
+                                                  Fluttertoast.showToast(
+                                                    msg:
+                                                        "Product Successfully Removed",
+                                                    toastLength:
+                                                        Toast.LENGTH_SHORT,
+                                                    fontSize: 20.0,
+                                                    timeInSecForIosWeb: 1,
+                                                    textColor: Colors.white,
+                                                    backgroundColor:
+                                                        Colors.blue[800],
+                                                  ),
+                                                }
+                                            });
+                                  },
+                                  child: const Text("Delete"),
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Colors.indigo[800],
+                                      textStyle: const TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 30,
+                              ),
+                              Expanded(
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => UpdateProductUi(
+                                          id: widget.id,
+                                          name: widget.name,
+                                          brand: widget.brand,
+                                          category: widget.category,
+                                          description: widget.description,
+                                          availableVehicle:
+                                              widget.availableVehicle,
+                                          price: widget.price.toString(),
+                                          image: widget.image,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: const Text("Update"),
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Colors.indigo[800],
+                                      textStyle: const TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   ElevatedButton(
                     onPressed: () {
@@ -429,7 +466,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                           onPressed: () {
                                             rentProduct(
                                               widget.name,
-                                              "image",
+                                              widget.image,
                                               widget.price.toString(),
                                               widget.productid,
                                               address.text,
@@ -444,12 +481,6 @@ class _ProductDetailState extends State<ProductDetail> {
                                                     Navigator.pop(context);
                                                     Navigator.pop(context);
                                                     // notify();
-                                                    // Navigator.push(
-                                                    //   context,
-                                                    //   MaterialPageRoute(
-                                                    //       builder: (context) =>
-                                                    //           AdminHomePage()),
-                                                    // );
                                                     Fluttertoast.showToast(
                                                       msg:
                                                           "Successfully Rented",
@@ -493,6 +524,12 @@ class _ProductDetailState extends State<ProductDetail> {
           );
         },
       ),
+    );
+  }
+
+  SizedBox gap() {
+    return SizedBox(
+      height: 8,
     );
   }
 

@@ -17,7 +17,8 @@ dynamic image;
 
 class _AddProductUiState extends State<AddProductUi> {
   // late File _image;
-  late File _image;
+  // late File _image;
+  dynamic netImage;
   bool apiCallProcess = false;
   final ImagePicker selectedimage = ImagePicker();
   final GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
@@ -34,7 +35,7 @@ class _AddProductUiState extends State<AddProductUi> {
     );
   }
 
-  dynamic image;
+  File? image;
 
   Future pickImage() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -313,12 +314,13 @@ class _AddProductUiState extends State<AddProductUi> {
                               description.text,
                               availableVehicle.text,
                               price.text,
-                              (image?.path).toString(),
+                              image,
                               context,
                             ).then((value) => {
                                   setState(() {
                                     apiCallProcess = false;
                                   }),
+                                  Navigator.pop(context),
                                   Fluttertoast.showToast(
                                     msg:
                                         "Congratulations ! \n Product has been added",

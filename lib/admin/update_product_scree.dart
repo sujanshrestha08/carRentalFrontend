@@ -1,6 +1,7 @@
 import 'package:car_rental/admin/admin_home.dart';
 import 'package:car_rental/services/add_product.dart';
 import 'package:car_rental/services/update_product_api.dart';
+import 'package:car_rental/utils/configs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -271,24 +272,39 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                     //       // Navigator.of(context).pop();
                     //     }),
                     _gap(),
-                    image != null
-                        ? Image.file(
-                            image!,
-                            width: 150,
-                            height: 150,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 250,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.blue[50],
+                          image: DecorationImage(
                             fit: BoxFit.cover,
-                          )
-                        : ElevatedButton(
-                            onPressed: () {
-                              pickImage();
-                            },
-                            child: Column(
-                              children: const [
-                                Icon(Icons.photo_library),
-                                Text('Photo Library'),
-                              ],
-                            ),
+                            image: NetworkImage(
+                                Configs.mainURL + '/uploads/' + widget.image),
                           ),
+                        ),
+                      ),
+                    ),
+                    // image != null
+                    //     ? Image.file(
+                    //         image!,
+                    //         width: 150,
+                    //         height: 150,
+                    //         fit: BoxFit.cover,
+                    //       )
+                    //     : ElevatedButton(
+                    //         onPressed: () {
+                    //           pickImage();
+                    //         },
+                    //         child: Column(
+                    //           children: const [
+                    //             Icon(Icons.photo_library),
+                    //             Text('Photo Library'),
+                    //           ],
+                    //         ),
+                    //       ),
                     _gap(),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 100),
@@ -315,7 +331,7 @@ class _UpdateProductUiState extends State<UpdateProductUi> {
                               description.text,
                               availableVehicle.text,
                               price.text,
-                              image.toString(),
+                              widget.image,
                               widget.id.toString(),
                               context,
                             ).then((value) => {
